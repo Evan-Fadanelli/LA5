@@ -8,37 +8,45 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 	File[] files = new File[10];
 	FormatExceptionHandler problemSolver = new FormatExceptionHandler();
 	int[] phoneNumberArray = new int[10];
-	String[] kimJongUn = new String[3];
 	
 	@Override
 	public void readContactInformation(String[] filePaths){
-		
-		
-	}
-
-	@Override
-	public void formatContactInformation(String fileName) {
-	Scanner peanut = new Scanner(fileName);
-		kimJongUn[0] = peanut.nextLine();
-		kimJongUn[1] = peanut.nextLine();
-		kimJongUn[2] = peanut.nextLine();
-		readContactInformation(kimJongUn);
-		
-	}
-
-	@Override
-	public void formatEmail(String email) throws EmailAddressFormatException {
-		
-		for(int i = 0; i<email.length()-1;i++){
-			char cheese = email.charAt(i);	
-			if(cheese > 64 || cheese < 91){	
-				throw new EmailAddressFormatException(email);		
-			}			
+		for(int fileTraverser=0;fileTraverser<filePaths.length;fileTraverser++) {
+			formatContactInformation(filePaths[fileTraverser]);
 		}
 	}
 
 	@Override
-	public void formatPhoneNumber(String phoneNumber) throws PhoneNumberFormatException {
+	public void formatContactInformation(String fileName){
+		try {
+			File file = new File(fileName);
+			Scanner fileReader = new Scanner(file);
+			formatName(fileReader.nextLine());
+			formatPhoneNumber(fileReader.nextLine());
+			formatEmail(fileReader.nextLine());
+			fileReader.close();
+		}catch(FileNotFoundException e) {
+			System.out.print(fileName);
+			problemSolver.handleFileNotFoundException(e);
+		}
+	}
+
+	@Override
+	public void formatEmail(String email){
+		try {
+			for(int i = 0; i<email.length()-1;i++){
+				char cheese = email.charAt(i);	
+				if(cheese > 64 || cheese < 91){	
+					throw new EmailAddressFormatException(email);		
+				}			
+			}
+		}catch(EmailAddressFormatException e) {
+			problemSolver.handleEmailFormatException(e);
+		}
+	}
+
+	@Override
+	public void formatPhoneNumber(String phoneNumber){
 		int numberForTheArray = 0;
 		try {
 			for(int a = 0; a< phoneNumber.length()-1; a++){
@@ -83,7 +91,7 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 	}
 
 	@Override
-	public void formatName(String name) throws NameFormatException {
+	public void formatName(String name){
 		// TODO Auto-generated method stub
 		boolean secondWord = false;
 		try {

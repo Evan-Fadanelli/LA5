@@ -13,7 +13,7 @@ public class EmailAddressFormatException extends Exception {
 		this.email = email;
 	}
 	
-	public String getName() {
+	public String getEmail() {
 		return this.email;
 	}
 }
