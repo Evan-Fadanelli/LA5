@@ -37,7 +37,7 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 		// TODO Auto-generated method stub
 		boolean secondWord = false;
 		try {
-			for(int stringIndex=0;stringIndex <= name.length();stringIndex++) {
+			for(int stringIndex=0;stringIndex <= name.length()-1;stringIndex++) {
 				char thisChar = name.charAt(stringIndex);
 				if(thisChar == ' ') {//check to see if were at the second word
 					secondWord = true;//if we are set the space true (the next letter must be capitalized
@@ -45,15 +45,17 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 				}else {//otherwise check to see if its the first or second word cap. letter
 					if(stringIndex == 0 || secondWord) {//if it is
 						secondWord = false;//set secondWord to false
-						if(thisChar <= 65 || thisChar >= 90) //if the character is not capital letter
-							throw new NameFormatException(name);//throw NameFormatexception and use handeler to handle it
+						if(thisChar < 65 || thisChar > 90) //if the character is not capital letter
+							throw new NameFormatException(name);//throw NameFormatexception and use handler to handle it
 					}else {//otherwise check to see if its a lowerCase letter
-						if(thisChar <= 97 || thisChar >= 122) //if the character is not lowercase letter
-							throw new NameFormatException(name);//throw NameFormatexception and use handeler to handle it
+						if(thisChar < 97 || thisChar > 122) //if the character is not lowerCase letter
+							throw new NameFormatException(name);//throw NameFormatexception and use handler to handle it
 					}
 				}
 			}
+			System.out.println("Correct Format was entered: " + name);//GET RID OF THIS LINE EVENTUALLY
 		}catch(NameFormatException e) {	
+			System.out.print("There was an incorrect format: " + name + "\nCorrect format: ");
 			problemSolver.handleNameFormatException(e);
 		}
 	}

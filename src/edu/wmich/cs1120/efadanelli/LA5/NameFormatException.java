@@ -10,6 +10,7 @@ public class NameFormatException extends Exception {
 	
 	public NameFormatException(String name){
 		super("There is an error in the name formatt here: " + name);
+		this.name = name;
 	}
 	
 	public String getName() {
