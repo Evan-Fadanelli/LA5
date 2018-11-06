@@ -8,6 +8,7 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 	File[] files = new File[10];
 	FormatExceptionHandler problemSolver = new FormatExceptionHandler();
 	int[] phoneNumberArray = new int[10];
+	
 	@Override
 	public void readContactInformation(String[] filePaths) {
 		// TODO Auto-generated method stub
@@ -90,9 +91,8 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 					}
 				}
 			}
-			System.out.println("Correct Format was entered: " + name);//GET RID OF THIS LINE EVENTUALLY
+			System.out.println(name);
 		}catch(NameFormatException e) {	
-			System.out.print("There was an incorrect format: " + name + "\nCorrect format: ");
 			problemSolver.handleNameFormatException(e);
 		}
 	}

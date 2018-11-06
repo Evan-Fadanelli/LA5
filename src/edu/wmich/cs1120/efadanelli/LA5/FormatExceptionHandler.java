@@ -13,7 +13,12 @@ public class FormatExceptionHandler implements IFormatExceptionHandler {
 	@Override
 	public void handlePhoneNumberFormatException(PhoneNumberFormatException e) {
 		// TODO Auto-generated method stub
-
+		String number = e.getNumber();
+		String newNumber = "(";
+		int tracker = 0;
+		while(tracker <= 3) {
+			
+		}
 	}
 
 	@Override
