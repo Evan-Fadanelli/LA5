@@ -28,9 +28,12 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 					char cheese = email.charAt(i);	
 					if(cheese > 64 || cheese < 91)
 					{
-						System.out.println("Email has a bad format");
-						throw EmailAddressFormatException();
+						
+						throw EmailAddressFormatException(email);
 					}
+					
+					
+					
 			}
 		
 	}
