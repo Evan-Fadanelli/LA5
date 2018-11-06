@@ -8,7 +8,11 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 	File[] files = new File[10];
 	FormatExceptionHandler problemSolver = new FormatExceptionHandler();
 	int[] phoneNumberArray = new int[10];
+<<<<<<< HEAD
 	String[] kimJongUn = new String[3];
+=======
+	
+>>>>>>> branch 'master' of https://github.com/Evan-Fadanelli/LA5.git
 	@Override
 	public void readContactInformation(String[] filePaths) {
 		formatName(filePaths[0]);
@@ -49,7 +53,7 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 	@Override
 	public void formatPhoneNumber(String phoneNumber) throws PhoneNumberFormatException {
 		int numberForTheArray = 0;
-	
+		try {
 			for(int a = 0; a< phoneNumber.length()-1; a++){
 				char pasta = phoneNumber.charAt(a);
 				switch(pasta) {
@@ -83,12 +87,19 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 				case 57: phoneNumberArray[numberForTheArray] = 9;
 					numberForTheArray++;
 					break;
+<<<<<<< HEAD
 				default: System.out.println("The char was not a number!");
 					throw PhoneNumberFormatException();
 					break;
+=======
+				default: throw new PhoneNumberFormatException(phoneNumber);
+>>>>>>> branch 'master' of https://github.com/Evan-Fadanelli/LA5.git
 				}
 			}
+		}catch(PhoneNumberFormatException e) {
+			problemSolver.handlePhoneNumberFormatException(e);
 		}
+	}
 
 	@Override
 	public void formatName(String name) throws NameFormatException {
@@ -111,9 +122,8 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 					}
 				}
 			}
-			System.out.println("Correct Format was entered: " + name);//GET RID OF THIS LINE EVENTUALLY
+			System.out.println(name);
 		}catch(NameFormatException e) {	
-			System.out.print("There was an incorrect format: " + name + "\nCorrect format: ");
 			problemSolver.handleNameFormatException(e);
 		}
 	}
