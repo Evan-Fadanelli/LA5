@@ -26,7 +26,8 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 
 	@Override
 	public void formatPhoneNumber(String phoneNumber) throws PhoneNumberFormatException {
-		// TODO Auto-generated method stub
+		
+		
 		
 	}
 
@@ -46,12 +47,12 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 						if(thisChar <= 65 || thisChar >= 90) //if the character is not capital letter
 							throw new NameFormatException();//throw NameFormatexception and use handeler to handle it
 					}else {//otherwise check to see if its a lowercase letter
-						
+						//lmao schuyler was here 
 					}
 				}
 			}
 		}catch(NameFormatException e) {	
 			
-		}
+		}//ya boi
 	}
 }
