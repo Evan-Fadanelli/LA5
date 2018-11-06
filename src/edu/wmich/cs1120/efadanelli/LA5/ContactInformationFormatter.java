@@ -1,12 +1,13 @@
 package edu.wmich.cs1120.efadanelli.LA5;
 
 import java.io.*;
+import java.util.Scanner;
 
 public class ContactInformationFormatter implements IContactInformationFormatter {
 	
 	File[] files = new File[10];
 	FormatExceptionHandler problemSolver = new FormatExceptionHandler();
-	
+	int[] phoneNumberArray = new Int[10];
 	@Override
 	public void readContactInformation(String[] filePaths) {
 		// TODO Auto-generated method stub
@@ -27,9 +28,51 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 
 	@Override
 	public void formatPhoneNumber(String phoneNumber) throws PhoneNumberFormatException {
+		int numberForTheArray = 0;
+	
+			for(int a = 0; a< phoneNumber.length()-1; a++)
+			{
+			
+					char pasta = phoneNumber.charAt(a);
 		
+				switch(pasta)
+			case 48: phoneNumberArray[numberForTheArray] = 0;
+					 numberForTheArray++:
+					 break;
+			case 49: phoneNumberArray[numberForTheArray] = 1;
+					 numberForTheArray++;
+					 break;
+			case 50: phoneNumberArray[numberForTheArray] = 2;
+					 numberForTheArray++;
+					 break;
+			case 51: phoneNumberArray[numberForTheArray] = 3;
+					 numberForTheArray++;
+					 break;
+			case 52: phoneNumberArray[numberForTheArray] = 4;
+					 numberForTheArray++;
+					 break;
+			case 53: phoneNumberArray[numberForTheArray] = 5;
+					 numberForTheArray++;
+					 break;
+			case 54: phoneNumberArray[numberForTheArray] = 6;
+					 numberForTheArray++;
+					 break;
+			case 55: phoneNumberArray[numberForTheArray] = 7;
+					 numberForTheArray++;
+					 break;
+			case 56: phoneNumberArray[numberForTheArray] = 8;
+					 numberForTheArray++;
+					 break;
+			case 57: phoneNumberArray[numberForTheArray] = 9;
+					 numberForTheArray++;
+					 break;
+			default: System.out.println("The char was not a number!"");
+			break;
+
+			}
+	
 		
-		
+	
 	}
 
 	@Override
