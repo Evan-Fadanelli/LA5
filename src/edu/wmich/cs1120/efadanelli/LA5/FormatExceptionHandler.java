@@ -15,29 +15,32 @@ public class FormatExceptionHandler implements IFormatExceptionHandler {
 		// TODO Auto-generated method stub
 		String number = e.getNumber();
 		String newNumber = "(";
+		int traverser = 0;
 		int tracker = 0;
 		while(tracker < 3) {
-			if(number.charAt(tracker) >= 48 || number.charAt(tracker) <= 57) {
-				newNumber = newNumber + number.charAt(tracker);
+			if(number.charAt(traverser) >= 48 && number.charAt(traverser) <= 57) {
+				newNumber = newNumber + number.charAt(traverser);
 				tracker++;
 			}
+			traverser++;
 		}
 		newNumber = newNumber + ")-";
-		tracker = 0;
-		while(tracker < 3) {
-			if(number.charAt(tracker) >= 48 || number.charAt(tracker) <= 57) {
-				newNumber = newNumber + number.charAt(tracker);
+		while(tracker < 6) {
+			if(number.charAt(traverser) >= 48 && number.charAt(traverser) <= 57) {
+				newNumber = newNumber + number.charAt(traverser);
 				tracker++;
 			}
+			traverser++;
 		}
 		newNumber = newNumber + "-";
-		tracker = 0;
-		while(tracker <= 3) {
-			if(number.charAt(tracker) >= 48 || number.charAt(tracker) <= 57) {
-				newNumber = newNumber + number.charAt(tracker);
+		while(tracker < 10) {
+			if(number.charAt(traverser) >= 48 && number.charAt(traverser) <= 57) {
+				newNumber = newNumber + number.charAt(traverser);
 				tracker++;
 			}
+			traverser++;
 		}
+		System.out.println(newNumber);
 	}
 
 	@Override
@@ -61,6 +64,7 @@ public class FormatExceptionHandler implements IFormatExceptionHandler {
 		}
 		for(int stringPosition=0;stringPosition <= name.length()-1;stringPosition++)
 			System.out.print(workingString[stringPosition]);
+		System.out.println("");
 	}
 
 }
