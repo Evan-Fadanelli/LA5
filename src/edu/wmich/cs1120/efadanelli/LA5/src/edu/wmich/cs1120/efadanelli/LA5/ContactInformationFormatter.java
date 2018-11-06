@@ -13,6 +13,7 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 	public void readContactInformation(String[] filePaths){
 		for(int fileTraverser=0;fileTraverser<filePaths.length;fileTraverser++) {
 			formatContactInformation(filePaths[fileTraverser]);
+			System.out.println();
 		}
 	}
 
