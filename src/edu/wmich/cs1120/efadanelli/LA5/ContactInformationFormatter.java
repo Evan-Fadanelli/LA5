@@ -30,8 +30,7 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 	public void formatPhoneNumber(String phoneNumber) throws PhoneNumberFormatException {
 		int numberForTheArray = 0;
 	
-			for(int a = 0; a< phoneNumber.length()-1; a++)
-			{
+			for(int a = 0; a< phoneNumber.length()-1; a++){
 				char pasta = phoneNumber.charAt(a);
 				switch(pasta) {
 				case 48: phoneNumberArray[numberForTheArray] = 0;
@@ -68,7 +67,7 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 					break;
 				}
 			}
-	}
+		}
 
 	@Override
 	public void formatName(String name) throws NameFormatException {
