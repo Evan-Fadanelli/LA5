@@ -16,8 +16,27 @@ public class FormatExceptionHandler implements IFormatExceptionHandler {
 		String number = e.getNumber();
 		String newNumber = "(";
 		int tracker = 0;
+		while(tracker < 3) {
+			if(number.charAt(tracker) >= 48 || number.charAt(tracker) <= 57) {
+				newNumber = newNumber + number.charAt(tracker);
+				tracker++;
+			}
+		}
+		newNumber = newNumber + ")-";
+		tracker = 0;
+		while(tracker < 3) {
+			if(number.charAt(tracker) >= 48 || number.charAt(tracker) <= 57) {
+				newNumber = newNumber + number.charAt(tracker);
+				tracker++;
+			}
+		}
+		newNumber = newNumber + "-";
+		tracker = 0;
 		while(tracker <= 3) {
-			
+			if(number.charAt(tracker) >= 48 || number.charAt(tracker) <= 57) {
+				newNumber = newNumber + number.charAt(tracker);
+				tracker++;
+			}
 		}
 	}
 
