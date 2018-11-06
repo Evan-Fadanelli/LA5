@@ -8,15 +8,21 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 	File[] files = new File[10];
 	FormatExceptionHandler problemSolver = new FormatExceptionHandler();
 	int[] phoneNumberArray = new int[10];
+	String[] kimJongUn = new String[3];
 	@Override
 	public void readContactInformation(String[] filePaths) {
-		// TODO Auto-generated method stub
+		formatName(filePaths[0]);
+		formatPhoneNumber(filePaths[1]);
+		formatEmail(filePaths[2]);
 		
 	}
 
 	@Override
 	public void formatContactInformation(String fileName) {
-		// TODO Auto-generated method stub
+	Scanner peanut = new Scanner(fileName);
+		kimJongUn[0] = peanut.nextLine();
+		kimJongUn[1] = peanut.nextLine();
+		kimJongUn[2] = peanut.nextLine();
 		
 	}
 
@@ -30,6 +36,7 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 					{
 						
 						throw EmailAddressFormatException(email);
+					
 					}
 					
 					
@@ -76,6 +83,7 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 					numberForTheArray++;
 					break;
 				default: System.out.println("The char was not a number!");
+					throw PhoneNumberFormatException();
 					break;
 				}
 			}
