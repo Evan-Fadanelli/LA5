@@ -1,15 +1,7 @@
 package edu.wmich.cs1120.efadanelli.LA5;
 
 public class PhoneNumberFormatException extends Exception {
-	
-<<<<<<< HEAD
-	
-	
-	
-	
-	
 
-=======
 	private String number = new String();
 	
 	public PhoneNumberFormatException(){
@@ -24,5 +16,4 @@ public class PhoneNumberFormatException extends Exception {
 	public String getNumber() {
 		return this.number;
 	}
->>>>>>> branch 'master' of https://github.com/Evan-Fadanelli/LA5.git
 }

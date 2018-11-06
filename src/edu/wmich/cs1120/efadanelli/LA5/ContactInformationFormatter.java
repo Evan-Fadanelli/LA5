@@ -8,16 +8,11 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 	File[] files = new File[10];
 	FormatExceptionHandler problemSolver = new FormatExceptionHandler();
 	int[] phoneNumberArray = new int[10];
-<<<<<<< HEAD
 	String[] kimJongUn = new String[3];
-=======
 	
->>>>>>> branch 'master' of https://github.com/Evan-Fadanelli/LA5.git
 	@Override
-	public void readContactInformation(String[] filePaths) {
-		formatName(filePaths[0]);
-		formatPhoneNumber(filePaths[1]);
-		formatEmail(filePaths[2]);
+	public void readContactInformation(String[] filePaths){
+		
 		
 	}
 
@@ -34,20 +29,12 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 	@Override
 	public void formatEmail(String email) throws EmailAddressFormatException {
 		
-		for(int i = 0; i<email.length()-1; i++);)
-			{
-					char cheese = email.charAt(i);	
-					if(cheese > 64 || cheese < 91)
-					{
-						
-						throw EmailAddressFormatException(email);
-					
-					}
-					
-					
-					
-			}
-		
+		for(int i = 0; i<email.length()-1;i++){
+			char cheese = email.charAt(i);	
+			if(cheese > 64 || cheese < 91){	
+				throw new EmailAddressFormatException(email);		
+			}			
+		}
 	}
 
 	@Override
@@ -87,13 +74,7 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 				case 57: phoneNumberArray[numberForTheArray] = 9;
 					numberForTheArray++;
 					break;
-<<<<<<< HEAD
-				default: System.out.println("The char was not a number!");
-					throw PhoneNumberFormatException();
-					break;
-=======
 				default: throw new PhoneNumberFormatException(phoneNumber);
->>>>>>> branch 'master' of https://github.com/Evan-Fadanelli/LA5.git
 				}
 			}
 		}catch(PhoneNumberFormatException e) {

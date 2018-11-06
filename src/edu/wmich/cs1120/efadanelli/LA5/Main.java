@@ -9,7 +9,7 @@ public class Main {
 		ContactInformationFormatter formatter = new ContactInformationFormatter();
 //		formatter.readContactInformation(filePaths);
 		formatter.formatName("eVAn fAdaNelLi");
-		formatter.formatPhoneNumber("586-867-5309");
+		formatter.formatPhoneNumber("(586867-5309");
 	}
 
 }
