@@ -34,8 +34,16 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 			Scanner drCream = new Scanner(files[i]);
 			drCream.nextLine();
 			do {
-				someInt = drCream.nextInt()
-				catch(wrongFormateExsetion)
+				try
+				{
+					someInt = drCream.nextInt()
+				}
+				}
+				catch(IllegalArgumentException)
+				{
+					System.out.println("Error in the phoneNumber");
+					drCream.nextChar();
+				}
 			}while(drCream.hasNext())
 				}
 		
