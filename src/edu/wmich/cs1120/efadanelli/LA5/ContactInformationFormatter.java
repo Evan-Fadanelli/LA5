@@ -1,6 +1,7 @@
 package edu.wmich.cs1120.efadanelli.LA5;
 
 import java.io.*;
+import java.util.Scanner;
 
 public class ContactInformationFormatter implements IContactInformationFormatter {
 	
@@ -27,6 +28,16 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 
 	@Override
 	public void formatPhoneNumber(String phoneNumber) throws PhoneNumberFormatException {
+		int someInt = -1
+		for(int i =0; i<files.length; i++)
+		{
+			Scanner drCream = new Scanner(files[i]);
+			drCream.nextLine();
+			do {
+				someInt = drCream.nextInt()
+				catch(wrongFormateExsetion)
+			}while(drCream.hasNext())
+				}
 		
 		
 		
