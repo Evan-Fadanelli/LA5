@@ -23,6 +23,7 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 		kimJongUn[0] = peanut.nextLine();
 		kimJongUn[1] = peanut.nextLine();
 		kimJongUn[2] = peanut.nextLine();
+		readContactInformation(kimJongUn);
 		
 	}
 
