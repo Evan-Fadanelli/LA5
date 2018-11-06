@@ -5,6 +5,7 @@ import java.io.*;
 public class ContactInformationFormatter implements IContactInformationFormatter {
 	
 	File[] files = new File[10];
+	FormatExceptionHandler problemSolver = new FormatExceptionHandler();
 	
 	@Override
 	public void readContactInformation(String[] filePaths) {
@@ -26,7 +27,8 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 
 	@Override
 	public void formatPhoneNumber(String phoneNumber) throws PhoneNumberFormatException {
-		// TODO Auto-generated method stub
+		
+		
 		
 	}
 
@@ -45,13 +47,14 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 						secondWord = false;//set secondWord to false
 						if(thisChar <= 65 || thisChar >= 90) //if the character is not capital letter
 							throw new NameFormatException(name);//throw NameFormatexception and use handeler to handle it
-					}else {//otherwise check to see if its a lowercase letter
-						
+					}else {//otherwise check to see if its a lowerCase letter
+						if(thisChar <= 97 || thisChar >= 122) //if the character is not lowercase letter
+							throw new NameFormatException(name);//throw NameFormatexception and use handeler to handle it
 					}
 				}
 			}
 		}catch(NameFormatException e) {	
-			//committed here
+			problemSolver.handleNameFormatException(e);
 		}
 	}
 }
