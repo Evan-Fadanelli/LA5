@@ -46,7 +46,7 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 						if(thisChar <= 65 || thisChar >= 90) //if the character is not capital letter
 							throw new NameFormatException();//throw NameFormatexception and use handeler to handle it
 					}else {//otherwise check to see if its a lowercase letter
-						//lmao schuyler was here 
+						
 					}
 				}
 			}
